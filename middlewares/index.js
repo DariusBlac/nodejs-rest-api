@@ -3,6 +3,7 @@ const isValidId = require("./validateMongooseId");
 const validateBodyFavoriteCOntact = require("./validateBodyFavoriteContact");
 const validateBody = require("./validateBody");
 const authenticate = require("./authenticate");
+const upload = require("./upload");
 
 module.exports = {
   validateContactBody,
@@ -10,4 +11,5 @@ module.exports = {
   validateBodyFavoriteCOntact,
   validateBody,
   authenticate,
+  upload,
 };
