@@ -6,9 +6,17 @@ const control = require("../../controllers/users");
 
 const { validateBody, authenticate, upload } = require("../../middlewares");
 
-const { authSchema } = require("../../models/user");
+const { authSchema, verifyEmailSchema } = require("../../models/user");
 
 router.post("/register", validateBody(authSchema), control.register);
+
+router.post(
+  "/verify",
+  validateBody(verifyEmailSchema),
+  control.resendVerifyEmail
+);
+
+router.get("/verify/:verificationToken", control.verifyEmail);
 
 router.post("/login", validateBody(authSchema), control.login);
 
